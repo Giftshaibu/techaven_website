@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="description"
+    content="TECHAVEN - Your trusted marketplace for quality electronics. Simple, secure, and designed for you." />
+  <title>TECHAVEN - Digital Marketplace for Quality Electronics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+</head>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas-header">
+    <img src="img/17547262965421.png" alt="TECHAVEN Logo" width="140" />
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#app">App</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#support">Support</a></li>
+      </ul>
+    </nav>
+    <div class="accordion" id="mobileFooterAccordion">
+      <!-- Product -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingProduct">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
+            Product
+          </button>
+        </h2>
+        <div id="collapseProduct" class="accordion-collapse collapse" aria-labelledby="headingProduct"
+          data-bs-parent="#mobileFooterAccordion">
+          <div class="accordion-body">
+            <ul class="list-unstyled">
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#download">Download</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCompany">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseCompany" aria-expanded="false" aria-controls="collapseCompany">
+            Company
+          </button>
+        </h2>
+        <div id="collapseCompany" class="accordion-collapse collapse" aria-labelledby="headingCompany"
+          data-bs-parent="#mobileFooterAccordion">
+          <div class="accordion-body">
+            <ul class="list-unstyled">
+              <li><a href="#about">About</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#press">Press</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingResources">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseResources" aria-expanded="false" aria-controls="collapseResources">
+            Resources
+          </button>
+        </h2>
+        <div id="collapseResources" class="accordion-collapse collapse" aria-labelledby="headingResources"
+          data-bs-parent="#mobileFooterAccordion">
+          <div class="accordion-body">
+            <ul class="list-unstyled">
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#help">Help Center</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a href="#download" class="button-primary-icon mt-4 d-inline-block">
+        Download app
+      </a>
+    </div>
+  </div>
+</div>
+
+<body>
+  <main class="TECH-HAVEN" id="home">
+    <section class="header_section">
+      <header class="group d-flex align-items-center justify-content-between">
+
+        <!-- Logo (always visible) -->
+        <a href="#home">
+          <img class="element" src="img/17547262965421.png" alt="TECHAVEN Logo" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="navbar d-none d-lg-flex" aria-label="Main navigation">
+          <ul class="mb-0">
+            <li><a href="#home" class="text-wrapper">Home</a></li>
+            <li><a href="#products" class="text-wrapper">Products</a></li>
+            <li><a href="#app" class="text-wrapper">App</a></li>
+            <li><a href="#about" class="text-wrapper">About</a></li>
+            <li><a href="#support" class="text-wrapper">Support</a></li>
+          </ul>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <a href="#download" class="button-primary-icon d-none d-lg-inline-block">
+          Download app
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button class="btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
+          aria-controls="mobileMenu">
+          <i class="bi bi-list fs-1"></i>
+        </button>
+
+      </header>
+    </section>
+    <section class="hero">
+      <section class="group-2" aria-label="Hero badge">
+        <div class="container text-left">
+          <div class="row">
+            <div class="col ms-auto">
+              <p class="hero_badge"><span class="circle"></span>Discover a smarter way to shop</p>
+              <h1 class="designed-to-make">
+                Designed to make buying electronics safe, and simple
+              </h1>
+              <p class="text-wrapper-10">
+                Discover, compare, and buy quality gadgets from trusted sellers all
+                in one place.
+              </p>
+              <div class="store_icons">
+                <a href="#download-playstore" aria-label="Download on Google Play">
+                  <img class="store-download-3" src="img/playstore.png" alt="Get it on Google Play" width="120px" />
+                </a>
+                <a href="#download-Appstore" aria-label="Download on Apple App Store">
+                  <img class="store-download-3" src="img/appstore.png" alt="Get it on Apple App Store" width="120px" />
+                </a>
+              </div>
+            </div>
+            <div class="col hero_image">
+              <img class="layer" src="img/electronicsshowcase21.png" alt="Electronics showcase" width="518px" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="about_techaven" id="about">
+      <div class="description-wrapper" aria-label="Section label">
+        <span class="text-wrapper-9">About Techaven</span>
+        <h2 class="your-digital">
+          <span class="span">Your Digital Marketplace</span>
+          <br class="br-mobile"><span>for </span><span class="text-wrapper-7">Quality Electronics</span>
+        </h2>
+        <p class="TECHAVEN-is-a">
+          TECHAVEN is a digital marketplace connecting users to quality
+          electronics and <br class="br-mobile">accessories. We emphasize convenience, variety, and trust making tech
+          <br class="br-mobile">shopping simple
+          and enjoyable.
+        </p>
+      </div>
+      <div class="container features-wrapper" aria-label="Section label">
+        <div class="row">
+          <article class="col px-3 py-5 ms-auto why_techaven_card">
+            <div class="image">
+              <img class="svg" src="img/shield.png" alt="" aria-hidden="true" width="30px" />
+            </div>
+            <h3 class="text-wrapper-12">Trusted Sellers</h3>
+            <p class="text-wrapper-13">
+              Every seller is verified to ensure <br class="br-mobile">quality and reliability.
+            </p>
+          </article>
+          <article class="col px-3 py-5 ms-auto why_techaven_card">
+            <img class="svg" src="img/fast.png" alt="" aria-hidden="true" width="30px" />
+            <h3 class="text-wrapper-14">Fast Delivery</h3>
+            <p class="text-wrapper-15">
+              Quick and secure shipping right to your doorstep.
+            </p>
+          </article>
+          <article class="col px-3 py-5 ms-auto why_techaven_card">
+            <img class="svg" src="img/heart.png" alt="" aria-hidden="true" width="30px" />
+            <h3 class="text-wrapper-16">Customer First</h3>
+            <p class="text-wrapper-17">
+              24/7 support and hassle-free <br class="br-mobile">returns policy.
+            </p>
+          </article>
+        </div>
+      </div>
+      </div>
+      <div class="carousel-dots" data-for="about"></div>
+    </section>
+    <section class="first_categories" id="products">
+      <div class="categories-wrapper" aria-label="Section label">
+        <span class="text-wrapper-9">CATEGORIES</span>
+      </div>
+      <h2 class="text-wrapper-8">What You Can Buy</h2>
+      <p class="TECHAVEN-is-a">
+        Explore our wide range of quality electronics and gadgets, all from
+        verified sellers.
+      </p>
+      <div class="container categories_grid">
+        <div class="row">
+          <article class="col ms-auto group-5">
+            <div class="image">
+              <img class="svg" src="img/phone.png" alt="" aria-hidden="true" width="30px" />
+            </div>
+            <div class="">
+              <h3 class="text-wrapper-18">Smartphones</h3>
+              <p class="text-wrapper-19">Latest phones from top brands</p>
+            </div>
+          </article>
+          <article class="col ms-auto group-5">
+            <div class="image_1">
+              <img class="svg" src="img/laptop.png" alt="" aria-hidden="true" width="30px" />
+            </div>
+            <div class="">
+              <h3 class="text-wrapper-20">Laptops</h3>
+              <p class="text-wrapper-21">Powerful machines for work and play</p>
+            </div>
+          </article>
+          <article class="col ms-auto group-5">
+            <div class="image">
+              <img class="svg" src="img/speaker.png" alt="" aria-hidden="true" width="30px" />
+            </div>
+            <div class="">
+              <h3 class="text-wrapper-22">Audio Devices</h3>
+              <p class="text-wrapper-19">Premium sound experience</p>
+            </div>
+          </article>
+        </div>
+        <div class="row">
+          <article class="col ms-auto group-5">
+            <div class="image_1">
+              <img class="svg" src="img/watch.png" alt="" aria-hidden="true" width="30px" />
+            </div>
+            <div class="">
+              <h3 class="text-wrapper-22">Wearables</h3>
+              <p class="text-wrapper-42">watches and fitness trackers</p>
+            </div>
+          </article>
+          <article class="col ms-auto group-5">
+            <div class="image">
+              <img class="svg" src="img/gamecontroller.png" alt="" aria-hidden="true" width="30px" />
+            </div>
+            <div class="">
+              <h3 class="text-wrapper-43">Gaming</h3>
+              <p class="text-wrapper-21">Consoles and controllers</p>
+            </div>
+          </article>
+          <article class="col ms-auto group-5">
+            <div class="image_1">
+              <img class="svg" src="img/cable.png" alt="" aria-hidden="true" width="30px" />
+            </div>
+            <div class="">
+              <h3 class="text-wrapper-18">Accessories</h3>
+              <p class="text-wrapper-19">chargers, cables and more</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="carousel-dots" data-for="categories"></div>
+    </section>
+    <section class="why_techaven">
+      <div class="why-choose-us-wrapper" aria-label="Section label">
+        <span class="text-wrapper-9">WHY CHOOSE US</span>
+      </div>
+      <h2>Why TECHAVEN?</h2>
+      <p class="TECHAVEN-is-a">
+        We've built the ultimate tech shopping experience with features that put
+        you first.
+      </p>
+      <section class="rectangle-10" aria-labelledby="verified-sellers-title">
+        <div class="container">
+          <div class="row">
+            <div class="col px-3 py-5 ms-auto why_techaven_card">
+              <img class="vector" src="img/shield.png" width="30px" alt="" aria-hidden="true" />
+              <h3>Verified Sellers</h3>
+              <p>Every seller on our platform goes through a strict verification
+                process.</p>
+            </div>
+            <div class="col px-3 py-5 ms-auto why_techaven_card">
+              <img class="vector" src="img/card.png" width="30px" alt="" aria-hidden="true" />
+              <h3>Secure Payments</h3>
+              <p>Multiple payment options with bank-level security for peace of mind.</p>
+            </div>
+            <div class="col px-3 py-5 ms-auto why_techaven_card">
+              <img class="vector" src="img/lock.png" width="30px" alt="" aria-hidden="true" />
+              <h3>Wide Variety</h3>
+              <p>Thousands of products across all major electronics categories.</p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col px-3 py-5 ms-auto why_techaven_card">
+              <img class="vector" src="img/stack.png" width="30px" alt="" aria-hidden="true" />
+              <h3>Easy Shopping</h3>
+              <p>Intuitive interface designed for a seamless buying experience.</p>
+            </div>
+            <div class="col px-3 py-5 ms-auto why_techaven_card">
+              <div class="image">
+                <img class="vector" src="img/phone.png" width="30px" alt="" aria-hidden="true" />
+              </div>
+              <h3>Mobile First</h3>
+              <p>Shop on the go with our beautifully designed mobile application.</p>
+            </div>
+            <div class="col px-3 py-5 ms-auto why_techaven_card">
+              <img class="vector" src="img/arrow.png" width="30px" alt="" aria-hidden="true" />
+              <h3>Easy Returns</h3>
+              <p>Return policy is generally simple and customer-friendly</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" data-for="why"></div>
+      </section>
+    </section>
+    <section class="shop_smarter_with" aria-labelledby="mobile-app-heading" id="app">
+      <div class="container">
+        <div class="row g-0">
+          <div class="col">
+            <div class="mobile-app-wrapper" aria-label="Section label">
+              <span class="text-wrapper-9">MOBILE APP</span>
+              <h2 id="mobile-app-heading" class="shop-smarter-with">
+                <span class="span">Shop Smarter with</span><span class="text-wrapper-7"> Our App</span>
+              </h2>
+              <p class="download-the TECHAVEN-is-a">
+                <span class="text-wrapper-41">Download the </span>
+                <span class="text-wrapper-41">TECHAVEN</span>
+                <span class="text-wrapper-41">
+                  app for the best mobile <br class="br-mobile">shopping experience. Browse, compare, and buy <br
+                    class="br-mobile">all from your
+                  pocket.</span>
+              </p>
+            </div>
+            <div class="shop-smarter-left">
+              <div class="item-1">
+                <div class="image">
+                  <img src="img/search.png" alt="" aria-hidden="true" width="30px" />
+                </div>
+                <div class="shop_description">
+                  <h3 class="text-wrapper-26">Browse Products</h3>
+                  <p class="text-wrapper-34">
+                    Explore thousands of gadgets with powerful search and filters.
+                  </p>
+                </div>
+              </div>
+
+              <div class="item-1">
+                <div class="image">
+                  <img src="img/Frame.png" alt="" aria-hidden="true" width="30px" />
+                </div>
+
+                <div class="shop_description">
+                  <h3 class="text-wrapper-26">Compare Products</h3>
+                  <p class="text-wrapper-34">
+                    Compare features and prices of thousands of gadgets to make informed decisions.
+                  </p>
+                </div>
+              </div>
+
+              <div class="item-1">
+                <div class="image">
+                  <img src="img/lock.png" alt="" aria-hidden="true" width="30px" />
+                </div>
+
+                <div class="shop_description">
+                  <h3 class="text-wrapper-26">Secure Checkout</h3>
+                  <p class="text-wrapper-34">
+                    Complete your purchase with confidence and security.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col mobile_app">
+            <img class="px" src="img/phoneshowcase.png" alt="Mobile app interface preview" width="300px" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="CTA" aria-hidden="true" id="support">
+      <div class="">
+        <h2 class="shop-smarter-shop">
+          <span class="span">Shop smarter. </span><span class="text-wrapper-7">Shop tech the easy way.</span>
+        </h2>
+        <p class="TECHAVEN-is-a">
+          <span class="text-wrapper-44">Join </span>
+          <span class="text-wrapper-44">thousands</span>
+          <span class="text-wrapper-44">
+            of happy customers who trust <br class="br-mobile">TECHAVEN for their electronics needs.</span>
+        </p>
+        <div class="store_icons">
+          <a href="#download-playstore" aria-label="Download on Google Play">
+            <img class="store-download-3" src="img/playstore.png" alt="Get it on Google Play" width="120px" />
+          </a>
+          <a href="#download-Appstore" aria-label="Download on Apple App Store">
+            <img class="store-download-3" src="img/appstore.png" alt="Get it on Apple App Store" width="120px" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <section class="footer_section container">
+        <div class="row">
+          <div class="col footer_first_column">
+            <img class="techguy" src="img/logowhite.png" alt="TECHAVEN" width="150px" />
+            <p class="TECHAVEN-is-a">
+              Your trusted marketplace for quality electronics. Simple, secure, and
+              designed for you.
+            </p>
+            <div class="store_icons">
+              <a href="#download-playstore" aria-label="Download on Google Play">
+                <img class="store-download-3" src="img/playstore.png" alt="Get it on Google Play" width="120px" />
+              </a>
+              <a href="#download-Appstore" aria-label="Download on Apple App Store">
+                <img class="store-download-3" src="img/appstore.png" alt="Get it on Apple App Store" width="120px" />
+              </a>
+            </div>
+            <div class="social_links">
+              <ul>
+                <li class="bi bi-instagram fs-6"><a href="#instagram"></a></li>
+                <li class="bi bi-twitter-x fs-6"><a href="#twitter"></a></li>
+                <li class="bi bi-facebook fs-6"><a href="#facebook"></a></li>
+                <li class="bi bi-linkedin fs-6"><a href="#linkedin"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col footer_links">
+            <div class="row">
+              <nav class="col group-19" aria-label="Product links">
+                <ul>
+                  <li>
+                    <h4 class="text-wrapper-46">Product</h4>
+                  </li>
+                  <li><a href="#features" class="text-wrapper-47">Features</a></li>
+                  <li><a href="#pricing" class="text-wrapper-48">Pricing</a></li>
+                  <li><a href="#download" class="text-wrapper-49">Download</a></li>
+                </ul>
+              </nav>
+              <nav class="col group-19" aria-label="Company links">
+                <ul>
+                  <li>
+                    <h4 class="text-wrapper-50">Company</h4>
+                  </li>
+                  <li><a href="#about" class="text-wrapper-51">About</a></li>
+                  <li><a href="#careers" class="text-wrapper-52">Careers</a></li>
+                  <li><a href="#press" class="text-wrapper-53">Press</a></li>
+                </ul>
+              </nav>
+              <nav class="col group-19" aria-label="Resources links">
+                <ul>
+                  <li>
+                    <h4 class="text-wrapper-54">Resources</h4>
+                  </li>
+                  <li><a href="#blog" class="text-wrapper-55">Blog</a></li>
+                  <li><a href="#help" class="text-wrapper-56">Hlep Center</a></li>
+                  <li><a href="#contact" class="text-wrapper-57">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <section class="Footer_bottom">
+          <p>&copy; 2026 TECHAVEN. All rights reserved.</p>
+          <div class="left_side">
+            <nav>
+              <ul>
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
+                <li><a href="#terms-of-service">Terms of Service</a></li>
+                <li><a href="#cookie-settings">Cookie Settings</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </section>
+    </footer>
+  </main>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+<script src="./script/script.js"></script>

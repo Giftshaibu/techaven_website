@@ -1,0 +1,859 @@
+/* 1. Reset and external imports */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+/* Use the official Google Import for all weights */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* Note: I removed the manual @font-face for 'DMSans' to avoid conflicts. 
+   The Google Font import above is more robust and covers all weights.
+*/
+
+:root {
+  --th-primary: #404DFE;
+  --th-secondary: #595959;
+  --th-light-bg: #FDFDFD;
+  --th-gradient: linear-gradient(270deg, #FDFDFD 0%, #CEE3FE 100%);
+  --th-text-dark: #000000;
+  --th-text-light: #ffffff;
+  --th-border-radius: 8px;
+  --th-transition: all 0.3s ease;
+  /* Define the font variable here for easy updates */
+  --th-body-font: 'DM Sans', sans-serif !important;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  /* Apply the variable here */
+  font-family: 'DM Sans', sans-serif !important;
+  line-height: 1.4;
+  color: var(--th-text-dark);
+  overflow-x: hidden;
+  max-width: 1500px;
+}
+
+/* Ensure interactive elements inherit the font */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Rest of your styles... */
+.text-wrapper-7 {
+  color: #3539e0;
+}
+
+p,
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.hero_badge {
+  padding: 5px 20px;
+  background-color: hsla(235, 100%, 98%, 1);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-right: 110px;
+}
+
+li {
+  text-decoration: none;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+/* Header styles */
+.group {
+  position: fixed;
+  top: 20px;
+  left: 50px;
+  right: 50px;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  z-index: 1000;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.group ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.group li {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.element {
+  height: 40px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar a {
+  color: var(--th-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: var(--th-transition);
+  position: relative;
+}
+
+.navbar a:hover {
+  color: var(--th-primary);
+}
+
+.navbar a::after {
+  content: '';
+
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--th-primary);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.button-primary-icon {
+  background: var(--th-primary);
+  color: var(--th-text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: var(--th-transition);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button-primary-icon:hover {
+  background: #3539e0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 77, 254, 0.3);
+}
+
+/* Mobile side navigation (top links) */
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.mobile-nav li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 14px 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--th-text-dark);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover / tap feedback */
+.mobile-nav a:hover,
+.mobile-nav a:focus {
+  background-color: hsla(235, 100%, 98%, 1);
+  color: var(--th-primary);
+  border-radius: 6px;
+}
+
+/* Optional: active section highlight */
+.mobile-nav a.active {
+  color: var(--th-primary);
+}
+
+.hero {
+  padding-top: 150px;
+  padding-left: 150px;
+  padding-right: 150px;
+  background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
+}
+
+.about_techaven {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 150px;
+  padding-right: 150px;
+  text-align: center;
+  background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
+}
+
+.about_techaven h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.about_techaven .TECHAVEN-is-a {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Mobile accordion styling */
+.accordion-button {
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: hsla(235, 100%, 98%, 1);
+  color: var(--th-primary);
+}
+
+.accordion-body a {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: var(--th-secondary);
+}
+
+.first_categories {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 150px;
+  padding-right: 150px;
+  text-align: center;
+}
+
+.first_categories h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.first_categories .TECHAVEN-is-a {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.why_techaven h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.why_techaven .TECHAVEN-is-a {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.why_techaven {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 150px;
+  padding-right: 150px;
+  text-align: center;
+  background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
+}
+
+.mobile-app-wrapper h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mobile-app-wrapper .TECHAVEN-is-a {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer_first_column img {
+  margin-bottom: 20px;
+}
+
+.hero_image {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.shop_smarter_with {
+  padding-left: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: linear-gradient(80deg, #ffffff 50%, #d1e4fe 65%);
+}
+
+/* Base animation state */
+.group-5,
+.why_techaven_card {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.shop_smarter_with .row {
+  align-items: left;
+}
+
+.shop-smarter-left {
+  max-width: 520px;
+}
+
+.item-1 {
+  display: inline-flex;
+  align-items: center;
+  text-align: left;
+  font-size: 12px;
+}
+
+.item-1 .image {
+  object-fit: contain;
+  background-color: hsla(235, 100%, 98%, 1);
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 15px;
+}
+
+.text-wrapper-9 {
+  padding: 5px 20px;
+  background-color: hsla(235, 100%, 98%, 1);
+  border-radius: 20px;
+}
+
+.CTA {
+  text-align: center;
+  background-color: #def2fe;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  height: 300px;
+  border-radius: 30px;
+  padding: 80px;
+}
+
+footer {
+  background-color: #14181f;
+}
+
+.footer_section {
+  margin-top: 100px;
+  padding-top: 50px;
+  padding-left: 180px;
+  padding-right: 180px;
+  color: #FDFDFD;
+  background-color: #14181f;
+}
+
+.footer_section li {
+  padding-bottom: 30px;
+  text-decoration: none;
+  color: #FDFDFD;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+.footer_section a {
+  text-decoration: none;
+  color: #FDFDFD;
+}
+
+.Footer_bottom {
+  color: #FDFDFD;
+  background-color: #14181f;
+  display: flex;
+  justify-content: space-between;
+  border-top: .2px solid #fff;
+
+}
+
+.social_links {
+  padding-top: 30px;
+}
+
+.social_links li {
+  list-style: none;
+  display: inline-flex;
+  justify-content: start;
+  background-color: #2c3036;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.Footer_bottom li {
+  list-style: none;
+  text-decoration: underline;
+  color: #FDFDFD;
+  display: inline-flex;
+  gap: 2rem;
+}
+
+.vector-4 {
+  padding: 12px;
+  background-color: #e9e6ff;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  box-sizing: content-box;
+  object-fit: contain;
+}
+
+.text-wrapper-45 {
+  max-width: 300px;
+}
+
+.text-wrapper-34 {
+  max-width: 300px;
+  text-align: left;
+}
+
+.text-wrapper-26 {
+  max-width: 300px;
+  text-align: left;
+}
+
+.footer_first_column {
+  margin-bottom: 20px;
+}
+
+.why_techaven_card {
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  margin: 20px;
+  background-color: #ffffff;
+}
+
+.why_techaven_card h3,
+.group-5 h3 {
+  font-size: 20px;
+}
+
+.group-5 {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0%;
+  text-align: left;
+  font-size: 12px;
+  margin: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.group-5 p {
+  line-height: 1;
+}
+
+.group-5 .image {
+  padding: 10px;
+  background-color: hsla(235, 100%, 98%, 1);
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.group-5 .image_1 {
+  padding: 10px;
+  background-color: hsla(33, 100%, 97%, 1);
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.mobile_app {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .why_techaven_card {
+    margin: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer_section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .footer_section .row {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .footer_links {
+    display: none;
+  }
+
+  .Footer_bottom .left_side {
+    display: none;
+  }
+
+  .CTA {
+    width: calc(100% - 80px);
+    height: auto;
+    padding: 60px 40px;
+  }
+
+  .why_techaven {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .shop_smarter_with {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .shop_smarter_with .row {
+    align-items: center;
+  }
+
+  .shop_smarter_with .mobile_app {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .hero {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .hero_image {
+    justify-content: center;
+  }
+
+  .hero_image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .group {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .footer_section .row {
+    flex-direction: column;
+  }
+
+  .footer_links .row {
+    flex-direction: column;
+  }
+
+  .group-19 {
+    margin-bottom: 30px;
+  }
+
+  .Footer_bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .Footer_bottom ul {
+    padding-left: 0;
+  }
+
+  .Footer_bottom li {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .shop_smarter_with .mobile_app {
+    display: none;
+  }
+
+  .shop_smarter_with .row {
+    justify-content: center;
+  }
+
+  .shop_smarter_with .col {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+
+  .carousel-dot.active {
+    background-color: var(--th-primary);
+    transform: scale(1.4);
+  }
+
+  .CTA {
+    width: calc(100% - 40px);
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+
+  .CTA .store_icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .first_categories .ms-auto {
+    margin-left: 0 !important;
+  }
+
+  .first_categories .row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 10px;
+    animation: swipeHint 1.2s ease-out 1;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .first_categories .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .first_categories .group-5 {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: center;
+  }
+
+  .first_categories {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .about_techaven .ms-auto {
+    margin-left: 0 !important;
+  }
+
+  .about_techaven .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about_techaven .row {
+    scrollbar-width: none;
+  }
+
+  .about_techaven {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .about_techaven .container>.row {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about_techaven .why_techaven_card {
+    min-width: 85%;
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  .about_techaven .TECHAVEN-is-a {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .why_techaven .TECHAVEN-is-a {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .CTA .TECHAVEN-is-a {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .br-mobile {
+    display: none;
+  }
+
+  .hero .hero_image {
+    margin-top: 20px;
+  }
+
+  .first_categories .TECHAVEN-is-a {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .mobile-app-wrapper .TECHAVEN-is-a {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .why_techaven .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .why_techaven .row {
+    scrollbar-width: none;
+  }
+
+  .why_techaven .ms-auto {
+    margin-left: 0 !important;
+  }
+
+  .why_techaven .container>.row {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .why_techaven_card {
+    min-width: 85%;
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  .why_techaven {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .shop_smarter_with {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: left;
+  }
+
+  .shop-smarter-left {
+    margin: 0 auto;
+  }
+
+  .item-1 {
+    justify-content: center;
+  }
+
+  .item-1 .shop_description {
+    text-align: left;
+  }
+
+  .mobile_app img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .hero .row {
+    flex-direction: column;
+  }
+
+  .hero .col {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero_badge {
+    margin-right: 0;
+    display: inline-block;
+  }
+
+  .store_icons {
+    justify-content: center;
+  }
+
+  .hero_image {
+    margin-top: 40px;
+  }
+
+  .group-5,
+  .why_techaven_card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .group-5:active,
+  .why_techaven_card:active {
+    transform: scale(0.97);
+  }
+}
+
+@media (max-width: 480px) {
+  .why_techaven .row>.col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
