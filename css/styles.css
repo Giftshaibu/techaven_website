@@ -281,10 +281,14 @@ li {
   text-align: center;
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
+.phoneimage-wrap {
+  position: relative;
+  margin-top: 40px;
+}
+
 .phoneimage {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
   gap: 24px;
   flex-wrap: wrap;
 }
@@ -337,6 +341,67 @@ li {
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.phoneimage-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(16, 16, 24, 0.55);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.phoneimage-nav:hover {
+  background: rgba(16, 16, 24, 0.7);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.phoneimage-prev {
+  left: 8px;
+}
+
+.phoneimage-next {
+  right: 8px;
+}
+
+.image-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.image-lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.image-lightbox-prev {
+  left: 20px;
+}
+
+.image-lightbox-next {
+  right: 20px;
 }
 
 .phoneimage-item:hover .phoneimage-zoom,
@@ -756,6 +821,11 @@ footer {
   .phoneimage-zoom {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .phoneimage-nav {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 

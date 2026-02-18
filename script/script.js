@@ -93,17 +93,25 @@ document.querySelectorAll('.mobile-nav a[href^="#"]').forEach(link => {
     });
 });
 
-const galleryItems = document.querySelectorAll('.phoneimage-item');
+const galleryItems = Array.from(document.querySelectorAll('.phoneimage-item'));
 const lightbox = document.querySelector('#phoneimageLightbox');
 const lightboxImg = lightbox?.querySelector('.image-lightbox-img');
 const lightboxClose = lightbox?.querySelector('.image-lightbox-close');
+const lightboxPrev = lightbox?.querySelector('.image-lightbox-prev');
+const lightboxNext = lightbox?.querySelector('.image-lightbox-next');
 let lastFocusedElement = null;
+let currentLightboxIndex = 0;
 
-function openLightbox(src, alt) {
-    if (!lightbox || !lightboxImg || !src) return;
+function openLightboxByIndex(index) {
+    if (!lightbox || !lightboxImg || !galleryItems.length) return;
+    const clampedIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+    const img = galleryItems[clampedIndex]?.querySelector('img');
+    const fullSrc = galleryItems[clampedIndex]?.getAttribute('data-full') || img?.src;
+    if (!fullSrc) return;
+    currentLightboxIndex = clampedIndex;
     lastFocusedElement = document.activeElement;
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
+    lightboxImg.src = fullSrc;
+    lightboxImg.alt = img?.alt || '';
     lightbox.classList.add('is-open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
@@ -123,11 +131,9 @@ function closeLightbox() {
     lastFocusedElement = null;
 }
 
-galleryItems.forEach(item => {
+galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const fullSrc = item.getAttribute('data-full') || img?.src;
-        openLightbox(fullSrc, img?.alt);
+        openLightboxByIndex(index);
     });
 });
 
@@ -143,4 +149,58 @@ document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && lightbox?.classList.contains('is-open')) {
         closeLightbox();
     }
+    if (lightbox?.classList.contains('is-open') && event.key === 'ArrowRight') {
+        openLightboxByIndex(currentLightboxIndex + 1);
+    }
+    if (lightbox?.classList.contains('is-open') && event.key === 'ArrowLeft') {
+        openLightboxByIndex(currentLightboxIndex - 1);
+    }
 });
+
+lightboxPrev?.addEventListener('click', () => {
+    openLightboxByIndex(currentLightboxIndex - 1);
+});
+
+lightboxNext?.addEventListener('click', () => {
+    openLightboxByIndex(currentLightboxIndex + 1);
+});
+
+const phoneGallery = document.querySelector('.phoneimage');
+const phoneGalleryWrap = document.querySelector('.phoneimage-wrap');
+if (phoneGallery && phoneGalleryWrap) {
+    const prevButton = phoneGalleryWrap.querySelector('.phoneimage-prev');
+    const nextButton = phoneGalleryWrap.querySelector('.phoneimage-next');
+
+    function scrollToIndex(index) {
+        const clampedIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+        const target = galleryItems[clampedIndex];
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+    }
+
+    function getCurrentIndex() {
+        if (!galleryItems.length) return 0;
+        let closestIndex = 0;
+        let closestDistance = Number.POSITIVE_INFINITY;
+        const scrollLeft = phoneGallery.scrollLeft;
+        galleryItems.forEach((item, index) => {
+            const distance = Math.abs(item.offsetLeft - scrollLeft);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+        return closestIndex;
+    }
+
+    prevButton?.addEventListener('click', () => {
+        const currentIndex = getCurrentIndex();
+        scrollToIndex(currentIndex - 1);
+    });
+
+    nextButton?.addEventListener('click', () => {
+        const currentIndex = getCurrentIndex();
+        scrollToIndex(currentIndex + 1);
+    });
+}
