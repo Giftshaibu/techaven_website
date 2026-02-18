@@ -281,6 +281,124 @@ li {
   text-align: center;
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
+.phoneimage {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.phoneimage-item {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 18px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phoneimage-item:focus-visible {
+  outline: 2px solid var(--th-primary);
+  outline-offset: 3px;
+}
+
+.phoneimage-item img {
+  width: 220px;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.phoneimage-item:hover img,
+.phoneimage-item:focus-visible img {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
+}
+
+.phoneimage-zoom {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(20, 24, 31, 0.75);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.phoneimage-item:hover .phoneimage-zoom,
+.phoneimage-item:focus-visible .phoneimage-zoom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 20, 0.86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 2000;
+  padding: 24px;
+}
+
+.image-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-lightbox-img {
+  max-width: 92vw;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  background: #ffffff;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.image-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
 
 .mobile-app-wrapper h2 {
   margin-top: 20px;
@@ -615,6 +733,30 @@ footer {
     width: 100%;
     max-width: 100%;
   }
+
+  .phoneimage {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    gap: 16px;
+    padding-bottom: 12px;
+  }
+
+  .phoneimage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .phoneimage-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
+
+  .phoneimage-zoom {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 576px) {
@@ -636,6 +778,10 @@ footer {
   .carousel-dot.active {
     background-color: var(--th-primary);
     transform: scale(1.4);
+  }
+
+  .phoneimage-item img {
+    width: min(78vw, 320px);
   }
 
   .CTA {
