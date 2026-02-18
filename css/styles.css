@@ -18,6 +18,8 @@
   --th-transition: all 0.3s ease;
   /* Define the font variable here for easy updates */
   --th-body-font: 'DM Sans', sans-serif !important;
+  --content-max: 1400px;
+  --content-pad: max(150px, calc((100vw - var(--content-max)) / 2));
 }
 
 * {
@@ -34,7 +36,7 @@ body {
   line-height: 1.4;
   color: var(--th-text-dark);
   overflow-x: hidden;
-  max-width: 1500px;
+  width: 100%;
 }
 
 /* Ensure interactive elements inherit the font */
@@ -79,16 +81,16 @@ li {
 .group {
   position: fixed;
   top: 20px;
-  left: 50px;
-  right: 50px;
+  left: var(--content-pad);
+  right: var(--content-pad);
   backdrop-filter: blur(10px);
-  border-radius: 30px;
+  /* border-radius: 30px; */
   z-index: 1000;
   padding-left: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .group ul {
@@ -203,16 +205,16 @@ li {
 
 .hero {
   padding-top: 150px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
 
 .about_techaven {
   padding-top: 100px;
   padding-bottom: 100px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
   text-align: center;
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
@@ -248,8 +250,8 @@ li {
 .first_categories {
   padding-top: 100px;
   padding-bottom: 100px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
   text-align: center;
 }
 
@@ -276,8 +278,8 @@ li {
 .why_techaven {
   padding-top: 80px;
   padding-bottom: 80px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
   text-align: center;
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
@@ -491,7 +493,8 @@ body.no-scroll {
 }
 
 .shop_smarter_with {
-  padding-left: 200px;
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
   padding-top: 100px;
   padding-bottom: 100px;
   background: linear-gradient(80deg, #ffffff 50%, #d1e4fe 65%);
@@ -555,8 +558,8 @@ footer {
 .footer_section {
   margin-top: 100px;
   padding-top: 50px;
-  padding-left: 180px;
-  padding-right: 180px;
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
   color: #FDFDFD;
   background-color: #14181f;
 }
