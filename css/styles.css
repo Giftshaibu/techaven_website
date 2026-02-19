@@ -84,7 +84,7 @@ li {
   left: var(--content-pad);
   right: var(--content-pad);
   backdrop-filter: blur(10px);
-  /* border-radius: 30px; */
+  border-radius: 30px;
   z-index: 1000;
   padding-left: 10px;
   display: flex;
