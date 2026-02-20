@@ -270,6 +270,140 @@ li {
   margin-bottom: 20px;
 }
 
+/* large headline used on coming‑soon and homepage */
+.designed-to-make,
+.big_text {
+  /* match bootstrap h1 sizing and weight so they look the same */
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  /* use primary colour for emphasis, change if needed */
+  color: var(--th-text-dark);
+}
+
+/* coming-soon variant should be centred */
+.big_text {
+  text-align: center;
+}
+
+/* ===== Coming-Soon Page layout ===== */
+
+/* Body: on desktop, lock scroll; on mobile, allow scroll */
+.coming-soon-body {
+  overflow-x: hidden;
+}
+
+/* Desktop: lock the whole page to one screen */
+@media (min-width: 992px) {
+  .coming-soon-body {
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .coming-soon-page {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Section fills the remaining height below the header */
+  .coming-soon-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 0;
+    background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
+    text-align: center;
+  }
+
+  /* Desktop image pinned to bottom */
+  .Desktop_image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .Desktop_image img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 280px);
+    height: auto;
+    object-fit: contain;
+    object-position: bottom;
+  }
+
+  /* Hide the minimal footer on desktop — no-scroll layout has no room for it */
+  .cs-footer {
+    display: none;
+  }
+}
+
+/* Mobile: natural flow — text, buttons, image, then footer */
+@media (max-width: 991px) {
+  .coming-soon-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .coming-soon-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* vertically center content */
+    text-align: center;
+    padding-top: 70px;
+    /* just enough to clear the fixed header */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background: linear-gradient(180deg, #d1e4fe 55%, #ffffff 100%);
+    flex: 1;
+  }
+
+  /* Mobile image: centered, large */
+  .mobile_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto 0;
+    width: 100%;
+  }
+
+  .mobile_image img {
+    width: min(85vw, 300px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* ===== Minimal footer for coming-soon page ===== */
+.cs-footer {
+  background-color: #14181f;
+  color: #fdfdfd;
+  text-align: center;
+  padding: 18px 20px;
+  font-size: 13px;
+}
+
+.cs-footer p {
+  margin: 0;
+  opacity: 0.7;
+}
+
 .why_techaven .TECHAVEN-is-a {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -283,6 +417,7 @@ li {
   text-align: center;
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
+
 .phoneimage-wrap {
   position: relative;
   margin-top: 40px;
@@ -590,12 +725,47 @@ footer {
   padding-top: 30px;
 }
 
+.social_links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .social_links ul {
+    justify-content: center;
+  }
+
+  .footer_first_column {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer_first_column .store_icons {
+    justify-content: center;
+  }
+}
+
 .social_links li {
   list-style: none;
   display: inline-flex;
   justify-content: start;
   background-color: #2c3036;
   padding: 10px;
+  border-radius: 30px;
+  position: relative;
+  /* needed so the a can fill it */
+}
+
+.social_links li a {
+  color: #FDFDFD;
+  cursor: pointer;
+  /* stretch the anchor over the entire pill so the whole icon is clickable */
+  position: absolute;
+  inset: 0;
   border-radius: 30px;
 }
 
@@ -683,6 +853,45 @@ footer {
 .mobile_app {
   margin-left: 0;
   margin-right: 0;
+}
+
+.coming-soon {
+  background-color: #404dfe;
+  color: #ffffff;
+  border-radius: 65px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.right_button {
+  background-color: #404dfe;
+  color: #ffffff;
+  border-radius: 65px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  width: 150px;
+  padding: 10px;
+}
+
+.left_button {
+  color: #000000;
+  background: none;
+  border: #000000 2px solid;
+  border-radius: 65px;
+  font-weight: 600;
+  font-size: 14px;
+  width: 150px;
+  padding: 10px;
+  height: fit-content;
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
@@ -829,6 +1038,11 @@ footer {
   .phoneimage-nav {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .center_image {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -1074,5 +1288,18 @@ footer {
   .why_techaven .row>.col {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+}
+
+/* ===== Coming-Soon big_text responsive tweaks (scoped) ===== */
+@media (max-width: 768px) {
+  .coming-soon-section .big_text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .coming-soon-section .big_text {
+    font-size: 1.25rem;
   }
 }

@@ -1,41 +1,173 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="utf-8" />
   <meta name="description" content="TECHAVEN is launching soon. Stay tuned for a smarter way to shop electronics." />
   <title>TECHAVEN — Coming Soon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200..800;1,9..40,200..800&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
   <link rel="icon" type="image/png" href="img/favicontechaveb.png" />
-  <link rel="stylesheet" href="css/coming-soon.css" />
+  <link rel="icon" type="image/png" href="img/favicontechaveb.png" />
 </head>
-<body>
-  <main class="coming-soon" aria-labelledby="coming-title">
-    <div class="bg-logo bg-logo--one" aria-hidden="true"></div>
-    <div class="bg-logo bg-logo--two" aria-hidden="true"></div>
-    <div class="bg-logo bg-logo--three" aria-hidden="true"></div>
-    <div class="bg-logo bg-logo--four" aria-hidden="true"></div>
-    <section class="coming-card" role="status" aria-live="polite">
-      <!-- <span class="coming-badge">TECHAVEN</span> -->
-      <div class="gif-wrap">
-        <img src="img/comingsoon.gif" alt="Retro loading screen animation that says coming soon." />
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas-header">
+    <img src="img/17547262965421.png" alt="TECHAVEN Logo" width="140" />
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html?section=products">Products</a></li>
+        <li><a href="index.html?section=app">App</a></li>
+        <li><a href="index.html?section=about">About</a></li>
+        <li><a href="index.html?section=support">Support</a></li>
+      </ul>
+    </nav>
+    <div class="accordion" id="mobileFooterAccordion">
+      <!-- Product -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingProduct">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
+            Product
+          </button>
+        </h2>
+        <div id="collapseProduct" class="accordion-collapse collapse" aria-labelledby="headingProduct"
+          data-bs-parent="#mobileFooterAccordion">
+          <div class="accordion-body">
+            <ul class="list-unstyled">
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#download">Download</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <!-- <h1 id="coming-title">Coming Soon</h1> -->
-      <p>
-        We're building a smarter, safer marketplace for electronics. <br>The launch window is close.
-      </p>
-      
-      <div class="coming-actions">
-        <a class="button-primary" href="index.html">Back to home</a>
-        <a class="button-ghost" href="mailto:hello@techaven.com?subject=Notify%20me">Notify me</a>
+
+      <!-- Company -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCompany">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseCompany" aria-expanded="false" aria-controls="collapseCompany">
+            Company
+          </button>
+        </h2>
+        <div id="collapseCompany" class="accordion-collapse collapse" aria-labelledby="headingCompany"
+          data-bs-parent="#mobileFooterAccordion">
+          <div class="accordion-body">
+            <ul class="list-unstyled">
+              <li><a href="#about">About</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#press">Press</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <span class="coming-meta">Launching 2026</span>
+
+      <!-- Resources -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingResources">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseResources" aria-expanded="false" aria-controls="collapseResources">
+            Resources
+          </button>
+        </h2>
+        <div id="collapseResources" class="accordion-collapse collapse" aria-labelledby="headingResources"
+          data-bs-parent="#mobileFooterAccordion">
+          <div class="accordion-body">
+            <ul class="list-unstyled">
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#help">Help Center</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a href="coming-soon.html" class="button-primary-icon mt-4 d-inline-block">
+        Download app
+      </a>
+    </div>
+  </div>
+</div>
+
+<body class="coming-soon-body">
+  <main class="coming-soon-page">
+    <section class="header_section">
+      <header class="group d-flex align-items-center justify-content-between">
+
+        <!-- Logo (always visible) -->
+        <a href="index.html">
+          <img class="element" src="img/17547262965421.png" alt="TECHAVEN Logo" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="navbar d-none d-lg-flex" aria-label="Main navigation">
+          <ul class="mb-0">
+            <li><a href="index.html" class="text-wrapper">Home</a></li>
+            <li><a href="index.html?section=#products" class="text-wrapper">Products</a></li>
+            <li><a href="index.html?section=#app" class="text-wrapper">App</a></li>
+            <li><a href="index.html?section=#about" class="text-wrapper">About</a></li>
+            <li><a href="index.html?section=#support" class="text-wrapper">Support</a></li>
+          </ul>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <a href="coming-soon.html" class="button-primary-icon d-none d-lg-inline-block">
+          Download app
+        </a>
+        <!-- Mobile Hamburger -->
+        <button class="btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
+          aria-controls="mobileMenu">
+          <i class="bi bi-list fs-1"></i>
+        </button>
+      </header>
     </section>
+
+    <!-- Full-viewport coming-soon content -->
+    <section class="coming-soon-section">
+      <h2 class="big_text">TechHaven is launching a smarter <br>way to shop electronics.</h2>
+      <div class="buttons">
+        <div class="left_button" type="button">
+          coming soon
+        </div>
+        <div class="right_button" type="button">
+          Join the waitlist
+        </div>
+      </div>
+
+      <!-- desktop graphic only on large screens (pinned to bottom via CSS) -->
+      <div class="Desktop_image d-none d-lg-block">
+        <img src="img/comingsoonimg1.png" alt="Coming Soon Image" />
+      </div>
+
+      <!-- mobile graphic: centered -->
+      <div class="mobile_image d-block d-lg-none">
+        <img src="img/comingsoonimg.png" alt="Coming Soon Image" width="280px" />
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cs-footer">
+      <p>&copy; 2026 TECHAVEN. All rights reserved.</p>
+    </footer>
   </main>
 </body>
+
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+<script src="./script/script.js"></script>
