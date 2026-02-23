@@ -1,11 +1,7 @@
-/* 1. Reset and external imports */
+/* ===== Base / Imports ===== */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-/* Use the official Google Import for all weights */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-/* Note: I removed the manual @font-face for 'DMSans' to avoid conflicts. 
-   The Google Font import above is more robust and covers all weights.
-*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
   --th-primary: #404DFE;
@@ -16,7 +12,6 @@
   --th-text-light: #ffffff;
   --th-border-radius: 8px;
   --th-transition: all 0.3s ease;
-  /* Define the font variable here for easy updates */
   --th-body-font: 'DM Sans', sans-serif !important;
   --content-max: 1400px;
   --content-pad: max(150px, calc((100vw - var(--content-max)) / 2));
@@ -31,7 +26,6 @@
 
 html,
 body {
-  /* Apply the variable here */
   font-family: 'DM Sans', sans-serif !important;
   line-height: 1.4;
   color: var(--th-text-dark);
@@ -39,7 +33,6 @@ body {
   width: 100%;
 }
 
-/* Ensure interactive elements inherit the font */
 button,
 input,
 select,
@@ -47,7 +40,7 @@ textarea {
   font-family: inherit;
 }
 
-/* Rest of your styles... */
+/* ===== Global Utilities ===== */
 .text-wrapper-7 {
   color: #3539e0;
 }
@@ -66,10 +59,6 @@ h3 {
   margin-right: 110px;
 }
 
-li {
-  text-decoration: none;
-}
-
 .circle {
   width: 10px;
   height: 10px;
@@ -77,7 +66,7 @@ li {
   border-radius: 50%;
 }
 
-/* Header styles */
+/* ===== Header / Nav ===== */
 .group {
   position: fixed;
   top: 20px;
@@ -90,7 +79,6 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .group ul {
@@ -109,7 +97,7 @@ li {
 .element {
   height: 40px;
   width: auto;
-  max-width: 150px;
+  max-width: 200px;
   object-fit: contain;
 }
 
@@ -147,6 +135,7 @@ li {
   width: 100%;
 }
 
+/* ===== Buttons ===== */
 .button-primary-icon {
   background: var(--th-primary);
   color: var(--th-text-light);
@@ -167,7 +156,7 @@ li {
   box-shadow: 0 5px 15px rgba(64, 77, 254, 0.3);
 }
 
-/* Mobile side navigation (top links) */
+/* Mobile side navigation */
 .mobile-nav ul {
   list-style: none;
   padding: 0;
@@ -190,7 +179,6 @@ li {
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-/* Hover / tap feedback */
 .mobile-nav a:hover,
 .mobile-nav a:focus {
   background-color: hsla(235, 100%, 98%, 1);
@@ -198,11 +186,11 @@ li {
   border-radius: 6px;
 }
 
-/* Optional: active section highlight */
 .mobile-nav a.active {
   color: var(--th-primary);
 }
 
+/* ===== Hero ===== */
 .hero {
   padding-top: 150px;
   padding-left: var(--content-pad);
@@ -210,6 +198,7 @@ li {
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
 
+/* ===== About ===== */
 .about_techaven {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -247,6 +236,7 @@ li {
   color: var(--th-secondary);
 }
 
+/* ===== Categories ===== */
 .first_categories {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -265,33 +255,31 @@ li {
   margin-bottom: 20px;
 }
 
+/* ===== Why Techaven ===== */
 .why_techaven h2 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-/* large headline used on coming‑soon and homepage */
+
 .designed-to-make,
 .big_text {
-  /* match bootstrap h1 sizing and weight so they look the same */
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.3rem;
+  font-weight: 600;
   line-height: 1.2;
-  /* use primary colour for emphasis, change if needed */
   color: var(--th-text-dark);
 }
 
-/* coming-soon variant should be centred */
+.buttons a {
+  text-decoration: none;
+  color: #000;
+}
+
 .big_text {
   text-align: center;
 }
 
 /* ===== Coming-Soon Page layout ===== */
-
-/* Body: on desktop, lock scroll; on mobile, allow scroll */
-.coming-soon-body {
-  overflow-x: hidden;
-}
 
 /* Desktop: lock the whole page to one screen */
 @media (min-width: 992px) {
@@ -308,7 +296,6 @@ li {
     overflow: hidden;
   }
 
-  /* Section fills the remaining height below the header */
   .coming-soon-section {
     flex: 1;
     display: flex;
@@ -325,17 +312,15 @@ li {
     text-align: center;
   }
 
-  /* Desktop image pinned to bottom */
   .Desktop_image {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: auto;
+    width: 100%;
     text-align: center;
   }
 
   .Desktop_image img {
     display: block;
+    margin: 0 auto;
     max-width: 100%;
     max-height: calc(100vh - 280px);
     height: auto;
@@ -343,7 +328,6 @@ li {
     object-position: bottom;
   }
 
-  /* Hide the minimal footer on desktop — no-scroll layout has no room for it */
   .cs-footer {
     display: none;
   }
@@ -362,10 +346,8 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* vertically center content */
     text-align: center;
     padding-top: 70px;
-    /* just enough to clear the fixed header */
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -373,7 +355,6 @@ li {
     flex: 1;
   }
 
-  /* Mobile image: centered, large */
   .mobile_image {
     display: flex;
     justify-content: center;
@@ -418,6 +399,7 @@ li {
   background: linear-gradient(80deg, #d1e4fe 55%, #ffffff 85%);
 }
 
+/* ===== Phone Gallery / Lightbox ===== */
 .phoneimage-wrap {
   position: relative;
   margin-top: 40px;
@@ -453,7 +435,6 @@ li {
   height: auto;
   display: block;
   border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -504,6 +485,26 @@ li {
   transform: translateY(-50%) scale(1.05);
 }
 
+.phoneimage-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.phoneimage-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.phoneimage-dot.active {
+  background: var(--th-primary);
+  transform: scale(1.4);
+}
+
 .phoneimage-prev {
   left: 8px;
 }
@@ -525,7 +526,6 @@ li {
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .image-lightbox-nav:hover {
@@ -602,6 +602,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* ===== Shop Smarter ===== */
 .mobile-app-wrapper h2 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -620,11 +621,6 @@ body.no-scroll {
   display: flex;
   justify-content: center;
   margin-top: 40px;
-}
-
-.hero-img {
-  max-width: 100%;
-  height: auto;
 }
 
 .shop_smarter_with {
@@ -646,11 +642,22 @@ body.no-scroll {
 }
 
 .shop_smarter_with .row {
-  align-items: left;
+  align-items: center;
+  justify-content: center;
 }
 
 .shop-smarter-left {
   max-width: 520px;
+}
+
+.shop_smarter_with .mobile_app {
+  display: flex;
+  justify-content: center;
+}
+
+.shop_smarter_with .mobile_app img {
+  max-width: 100%;
+  height: auto;
 }
 
 .item-1 {
@@ -674,6 +681,7 @@ body.no-scroll {
   border-radius: 20px;
 }
 
+/* ===== CTA ===== */
 .CTA {
   text-align: center;
   background-color: #def2fe;
@@ -686,6 +694,7 @@ body.no-scroll {
   padding: 80px;
 }
 
+/* ===== Footer ===== */
 footer {
   background-color: #14181f;
 }
@@ -757,13 +766,11 @@ footer {
   padding: 10px;
   border-radius: 30px;
   position: relative;
-  /* needed so the a can fill it */
 }
 
 .social_links li a {
   color: #FDFDFD;
   cursor: pointer;
-  /* stretch the anchor over the entire pill so the whole icon is clickable */
   position: absolute;
   inset: 0;
   border-radius: 30px;
@@ -777,20 +784,6 @@ footer {
   gap: 2rem;
 }
 
-.vector-4 {
-  padding: 12px;
-  background-color: #e9e6ff;
-  border-radius: 10px;
-  width: 30px;
-  height: 30px;
-  box-sizing: content-box;
-  object-fit: contain;
-}
-
-.text-wrapper-45 {
-  max-width: 300px;
-}
-
 .text-wrapper-34 {
   max-width: 300px;
   text-align: left;
@@ -799,10 +792,6 @@ footer {
 .text-wrapper-26 {
   max-width: 300px;
   text-align: left;
-}
-
-.footer_first_column {
-  margin-bottom: 20px;
 }
 
 .why_techaven_card {
@@ -855,6 +844,7 @@ footer {
   margin-right: 0;
 }
 
+/* ===== Coming Soon / Waitlist ===== */
 .coming-soon {
   background-color: #404dfe;
   color: #ffffff;
@@ -868,7 +858,109 @@ footer {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+
+.waitlist-panel {
+  width: min(600px, 100%);
+  margin: 0 auto 40px;
+  display: none;
+}
+
+.coming-soon-section.waitlist-active .buttons {
+  display: none;
+}
+
+.coming-soon-section.waitlist-active .waitlist-panel {
+  display: block;
+}
+
+.coming-soon-section.waitlist-active .Desktop_image,
+.coming-soon-section.waitlist-active .mobile_image {
+  display: none;
+}
+
+.waitlist-panel.is-open {
+  display: block;
+}
+
+.waitlist-form {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.waitlist-input {
+  flex: 1 1 auto;
+  border: none;
+  background: #dee6ff;
+  color: #1f2233;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  outline: none;
+}
+
+.waitlist-input::placeholder {
+  color: #6a76b3;
+}
+
+.waitlist-input:focus {
+  box-shadow: 0 0 0 2px rgba(64, 77, 254, 0.3);
+}
+
+.waitlist-submit {
+  border: none;
+  background: var(--th-primary);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.waitlist-submit:hover,
+.waitlist-submit:focus-visible {
+  background: #3539e0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(64, 77, 254, 0.35);
+}
+
+.waitlist-panel.is-success .waitlist-form {
+  display: none;
+}
+
+.waitlist-success {
+  display: none;
+  border-radius: 24px;
+  padding: 22px 18px;
+  text-align: center;
+}
+
+.waitlist-panel.is-success .waitlist-success {
+  display: block;
+}
+
+.waitlist-success p {
+  margin: 0 0 16px;
+  font-weight: 500;
+  color: #4e4e4e;
+}
+
+.waitlist-home {
+  background: var(--th-primary);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
 }
 
 .right_button {
@@ -880,6 +972,15 @@ footer {
   font-size: 14px;
   width: 150px;
   padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.right_button:hover,
+.right_button:focus-visible {
+  background-color: #3539e0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(64, 77, 254, 0.35);
 }
 
 .left_button {
@@ -892,6 +993,34 @@ footer {
   width: 150px;
   padding: 10px;
   height: fit-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.left_button:hover,
+.left_button:focus-visible {
+  background-color: rgba(64, 77, 254, 0.08);
+  border-color: #3539e0;
+  color: #3539e0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(64, 77, 254, 0.18);
+}
+
+@media (max-width: 768px) {
+  .waitlist-form {
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 16px;
+  }
+
+  .waitlist-input,
+  .waitlist-submit {
+    width: 100%;
+  }
+
+  .waitlist-submit {
+    justify-content: center;
+    width: 80px;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
@@ -1019,6 +1148,8 @@ footer {
     justify-content: flex-start;
     gap: 16px;
     padding-bottom: 12px;
+    scroll-padding: 0 24px;
+    scroll-behavior: smooth;
   }
 
   .phoneimage::-webkit-scrollbar {
@@ -1028,6 +1159,7 @@ footer {
   .phoneimage-item {
     flex: 0 0 100%;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
 
   .phoneimage-zoom {
@@ -1040,10 +1172,6 @@ footer {
     pointer-events: auto;
   }
 
-  .center_image {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
 }
 
 @media (max-width: 576px) {
@@ -1065,6 +1193,14 @@ footer {
   .carousel-dot.active {
     background-color: var(--th-primary);
     transform: scale(1.4);
+  }
+
+  .first_categories .group-5,
+  .about_techaven .why_techaven_card,
+  .why_techaven .why_techaven_card {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   .phoneimage-item img {
@@ -1298,8 +1434,75 @@ footer {
   }
 }
 
+@media (max-width: 600px) {
+  .coming-soon-section .big_text br {
+    display: none;
+  }
+
+  .coming-soon-section .big_text {
+    max-width: 34ch;
+    margin: 0 auto;
+    text-wrap: balance;
+  }
+}
+
 @media (max-width: 480px) {
   .coming-soon-section .big_text {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .coming-soon-section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .coming-soon-section .big_text {
+    font-size: 1.1rem;
+    max-width: 32ch;
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+}
+
+/* Mid-range (tablets/smaller laptops): show 2-up carousel */
+@media (min-width: 769px) and (max-width: 991px) {
+  .coming-soon-section {
+    justify-content: flex-start;
+  }
+
+  .mobile_image {
+    margin-top: 24px;
+  }
+
+  .phoneimage {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    justify-content: flex-start;
+    gap: 16px;
+    padding-bottom: 12px;
+    scroll-padding: 0 24px;
+    scroll-behavior: smooth;
+  }
+
+  .phoneimage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .phoneimage-item {
+    flex: 0 0 calc(50% - 8px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .phoneimage-item img {
+    width: 100%;
+  }
+
+  .phoneimage-nav {
+    opacity: 1;
+    pointer-events: auto;
   }
 }

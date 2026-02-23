@@ -170,12 +170,22 @@ const phoneGalleryWrap = document.querySelector('.phoneimage-wrap');
 if (phoneGallery && phoneGalleryWrap) {
     const prevButton = phoneGalleryWrap.querySelector('.phoneimage-prev');
     const nextButton = phoneGalleryWrap.querySelector('.phoneimage-next');
+    const dotsContainer = phoneGalleryWrap.querySelector('.phoneimage-dots');
+    let dots = [];
+
+    function isTwoUpCarousel() {
+        return window.matchMedia('(min-width: 769px) and (max-width: 991px)').matches;
+    }
+
+    function getInlineAlign() {
+        return isTwoUpCarousel() ? 'start' : 'center';
+    }
 
     function scrollToIndex(index) {
         const clampedIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
         const target = galleryItems[clampedIndex];
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            target.scrollIntoView({ behavior: 'smooth', inline: getInlineAlign(), block: 'nearest' });
         }
     }
 
@@ -194,6 +204,29 @@ if (phoneGallery && phoneGalleryWrap) {
         return closestIndex;
     }
 
+    function buildDots() {
+        if (!dotsContainer || !galleryItems.length) return;
+        dotsContainer.innerHTML = '';
+        dots = galleryItems.map((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'phoneimage-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => scrollToIndex(index));
+            dotsContainer.appendChild(dot);
+            return dot;
+        });
+    }
+
+    function setActiveDot(index) {
+        if (!dots.length) return;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    buildDots();
+    setActiveDot(0);
+
     prevButton?.addEventListener('click', () => {
         const currentIndex = getCurrentIndex();
         scrollToIndex(currentIndex - 1);
@@ -203,4 +236,45 @@ if (phoneGallery && phoneGalleryWrap) {
         const currentIndex = getCurrentIndex();
         scrollToIndex(currentIndex + 1);
     });
+
+    let scrollRaf = null;
+    phoneGallery.addEventListener('scroll', () => {
+        if (scrollRaf) return;
+        scrollRaf = requestAnimationFrame(() => {
+            scrollRaf = null;
+            setActiveDot(getCurrentIndex());
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        setActiveDot(getCurrentIndex());
+    });
 }
+
+const waitlistTrigger = document.querySelector('.waitlist-trigger');
+const waitlistPanel = document.querySelector('#waitlistPanel');
+const waitlistForm = document.querySelector('#waitlistForm');
+const waitlistName = document.querySelector('#waitlistName');
+const waitlistSuccess = document.querySelector('#waitlistSuccess');
+const comingSoonSection = document.querySelector('.coming-soon-section');
+
+if (waitlistTrigger && waitlistPanel) {
+    waitlistTrigger.addEventListener('click', () => {
+        comingSoonSection?.classList.add('waitlist-active');
+        waitlistPanel.classList.add('is-open');
+        waitlistPanel.classList.remove('is-success');
+        waitlistPanel.setAttribute('aria-hidden', 'false');
+        waitlistForm?.setAttribute('aria-hidden', 'false');
+        waitlistSuccess?.setAttribute('aria-hidden', 'true');
+        waitlistPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => waitlistName?.focus(), 250);
+    });
+}
+
+waitlistForm?.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!waitlistPanel) return;
+    waitlistPanel.classList.add('is-success');
+    waitlistForm.setAttribute('aria-hidden', 'true');
+    waitlistSuccess?.setAttribute('aria-hidden', 'false');
+});
