@@ -302,9 +302,10 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    row-gap: 20px;
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 80px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 0;
@@ -347,7 +348,8 @@ h3 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 70px;
+    row-gap: 16px;
+    padding-top: 60px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -359,7 +361,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 16px auto 0;
+    margin: 0 auto;
     width: 100%;
   }
 
@@ -861,9 +863,17 @@ footer {
   margin-bottom: 10px;
 }
 
+.coming-soon-section .buttons {
+  margin: 0;
+}
+
+.coming-soon-section .big_text {
+  margin: 0;
+}
+
 .waitlist-panel {
   width: min(600px, 100%);
-  margin: 0 auto 40px;
+  margin: 0 auto;
   display: none;
 }
 
@@ -877,7 +887,7 @@ footer {
 
 .coming-soon-section.waitlist-active .Desktop_image,
 .coming-soon-section.waitlist-active .mobile_image {
-  display: none;
+  margin-top: 0;
 }
 
 .waitlist-panel.is-open {
