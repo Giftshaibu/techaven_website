@@ -271,10 +271,34 @@ if (waitlistTrigger && waitlistPanel) {
     });
 }
 
-waitlistForm?.addEventListener('submit', event => {
+waitlistForm?.addEventListener('submit', async event => {
     event.preventDefault();
-    if (!waitlistPanel) return;
-    waitlistPanel.classList.add('is-success');
-    waitlistForm.setAttribute('aria-hidden', 'true');
-    waitlistSuccess?.setAttribute('aria-hidden', 'false');
+    if (!waitlistPanel || !waitlistForm) return;
+
+    const name = document.getElementById('waitlistName')?.value?.trim();
+    const email = document.getElementById('waitlistEmail')?.value?.trim();
+
+    if (!name || !email) {
+        alert('Please enter your name and email.');
+        return;
+    }
+
+    if (typeof emailjs === 'undefined') {
+        alert('Email service failed to load. Please try again.');
+        return;
+    }
+
+    try {
+        await emailjs.send('service_q2yobvl', 'template_miesfyf', {
+            name,
+            email,
+            reply_to: email
+        });
+        waitlistPanel.classList.add('is-success');
+        waitlistForm.setAttribute('aria-hidden', 'true');
+        waitlistSuccess?.setAttribute('aria-hidden', 'false');
+    } catch (error) {
+        console.error('EmailJS error:', error);
+        alert('Failed to submit. Please try again.');
+    }
 });
