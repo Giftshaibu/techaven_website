@@ -1004,6 +1004,10 @@ footer {
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(64, 77, 254, 0.18);
 }
+.left_button a:hover,
+.left_button:focus-visible {
+  color: #3539e0;
+}
 
 @media (max-width: 768px) {
   .waitlist-form {
