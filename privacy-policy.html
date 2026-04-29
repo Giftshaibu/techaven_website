@@ -695,6 +695,15 @@
     (function () {
       const sidebarLinks = document.querySelectorAll('.policy-sidebar-link');
       const sections = document.querySelectorAll('article.policy-section');
+      const sidebar = document.querySelector('.policy-sidebar');
+      const hero = document.querySelector('.policy-hero');
+
+      // Show sidebar only once the hero section has scrolled past
+      function updateSidebarVisibility() {
+        sidebar.classList.toggle('is-visible', hero.getBoundingClientRect().bottom <= 100);
+      }
+      window.addEventListener('scroll', updateSidebarVisibility, { passive: true });
+      updateSidebarVisibility();
 
       // Highlight active section on scroll
       const observer = new IntersectionObserver((entries) => {
