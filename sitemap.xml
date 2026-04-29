@@ -7,16 +7,34 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://tech-havenmalawi.store/about.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tech-havenmalawi.store/careers.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tech-havenmalawi.store/faq.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tech-havenmalawi.store/about.html</loc>
+    <loc>https://tech-havenmalawi.store/privacy-policy.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tech-havenmalawi.store/coming-soon.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://tech-havenmalawi.store/blog.html</loc>
@@ -83,23 +101,5 @@
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://tech-havenmalawi.store/careers.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://tech-havenmalawi.store/privacy-policy.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://tech-havenmalawi.store/coming-soon.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
