@@ -1535,17 +1535,20 @@ footer {
   flex: 1;
   min-width: 0;
   margin: 0;
+  margin-left: calc(210px + 48px);
 }
 
 .policy-sidebar {
   width: 210px;
   flex-shrink: 0;
-  position: sticky;
+  position: fixed;
   top: 100px;
+  left: var(--content-pad);
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   scrollbar-width: none;
   padding-bottom: 40px;
+  z-index: 100;
 }
 
 .policy-sidebar::-webkit-scrollbar {
@@ -1618,6 +1621,10 @@ footer {
 
   .policy-sidebar {
     display: none;
+  }
+
+  .policy-layout .policy-container {
+    margin-left: 0;
   }
 }
 
