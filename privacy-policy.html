@@ -137,7 +137,33 @@
 
     <!-- Policy Body -->
     <section class="policy-body">
-      <div class="policy-container">
+      <div class="policy-layout">
+
+        <!-- Sidebar navigation (desktop only) -->
+        <aside class="policy-sidebar" aria-label="Page navigation">
+          <p class="policy-sidebar-title">On this page</p>
+          <ol class="policy-sidebar-list">
+            <li><a href="#purpose" class="policy-sidebar-link">Purpose and Scope</a></li>
+            <li><a href="#legal-framework" class="policy-sidebar-link">Legal Framework</a></li>
+            <li><a href="#data-categories" class="policy-sidebar-link">Data Categories</a></li>
+            <li><a href="#lawful-bases" class="policy-sidebar-link">Lawful Bases</a></li>
+            <li><a href="#data-subject-rights" class="policy-sidebar-link">Data Subject Rights</a></li>
+            <li><a href="#security-measures" class="policy-sidebar-link">Security Measures</a></li>
+            <li><a href="#breach-notification" class="policy-sidebar-link">Breach Notification</a></li>
+            <li><a href="#third-party-sharing" class="policy-sidebar-link">Third-Party Sharing</a></li>
+            <li><a href="#cross-border" class="policy-sidebar-link">Cross-Border Transfers</a></li>
+            <li><a href="#retention" class="policy-sidebar-link">Retention &amp; Disposal</a></li>
+            <li><a href="#dpo" class="policy-sidebar-link">Data Protection Officer</a></li>
+            <li><a href="#cookies" class="policy-sidebar-link">Cookies</a></li>
+            <li><a href="#automated" class="policy-sidebar-link">Automated Decisions</a></li>
+            <li><a href="#children" class="policy-sidebar-link">Children's Privacy</a></li>
+            <li><a href="#policy-changes" class="policy-sidebar-link">Policy Changes</a></li>
+            <li><a href="#contact" class="policy-sidebar-link">Contact Us</a></li>
+          </ol>
+        </aside>
+
+        <!-- Main content -->
+        <div class="policy-container">
 
         <!-- Table of Contents -->
         <div class="policy-toc-card">
@@ -583,6 +609,7 @@
           <p class="policy-version">Document Type: Compliance Policy &nbsp;|&nbsp; Version: 1.0 &nbsp;|&nbsp; Company: Techaven, Reg. No. BRNKGS4J55</p>
         </div>
 
+        </div>
       </div>
     </section>
 
@@ -664,6 +691,40 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
   <script src="./script/script.js"></script>
+  <script>
+    (function () {
+      const sidebarLinks = document.querySelectorAll('.policy-sidebar-link');
+      const sections = document.querySelectorAll('article.policy-section');
+
+      // Highlight active section on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            sidebarLinks.forEach(link => {
+              const isActive = link.getAttribute('href') === `#${id}`;
+              link.classList.toggle('active', isActive);
+            });
+            // Keep active link visible inside the sidebar
+            const activeLink = document.querySelector(`.policy-sidebar-link[href="#${id}"]`);
+            if (activeLink) activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          }
+        });
+      }, { rootMargin: '-10% 0px -60% 0px', threshold: 0 });
+
+      sections.forEach(s => observer.observe(s));
+
+      // Smooth scroll with header offset for all in-page anchor links
+      document.querySelectorAll('.policy-sidebar-link, .policy-toc-list a').forEach(link => {
+        link.addEventListener('click', e => {
+          const target = document.querySelector(link.getAttribute('href'));
+          if (!target) return;
+          e.preventDefault();
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
 </body>
 
 </html>
