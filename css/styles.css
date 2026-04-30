@@ -699,10 +699,13 @@ body.no-scroll {
 /* ===== Footer ===== */
 footer {
   background-color: #14181f;
+  position: relative;
+  z-index: 150;
+  margin-top: 32px;
 }
 
 .footer_section {
-  margin-top: 100px;
+  margin-top: 0;
   padding-top: 50px;
   padding-left: var(--content-pad);
   padding-right: var(--content-pad);
@@ -2521,23 +2524,85 @@ footer {
   text-transform: uppercase;
 }
 
+.related-blog-section {
+  padding-top: 44px;
+  margin-top: 36px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.related-blog-section h2 {
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.related-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.related-blog-card {
+  display: block;
+  padding: 18px;
+  min-height: 150px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  color: var(--th-text-dark);
+  text-decoration: none;
+  transition: var(--th-transition);
+}
+
+.related-blog-card:hover {
+  border-color: rgba(64, 77, 254, 0.28);
+  color: var(--th-primary);
+  transform: translateY(-2px);
+}
+
+.related-blog-card span {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--th-primary);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.related-blog-card h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .about-zigzag {
   display: grid;
-  grid-template-columns: minmax(140px, 220px) 1fr;
-  gap: 28px;
+  grid-template-columns: minmax(460px, 1.12fr) minmax(320px, 0.88fr);
+  gap: 56px;
   align-items: center;
 }
 
 .about-zigzag--end {
-  grid-template-columns: 1fr minmax(140px, 220px);
+  grid-template-columns: minmax(320px, 0.88fr) minmax(460px, 1.12fr);
 }
 
 .about-image-placeholder {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1.05 / 1;
+  min-height: 520px;
   background: hsla(235, 100%, 98%, 1);
   border: 1px dashed rgba(64, 77, 254, 0.28);
   border-radius: 8px;
+}
+
+.about-page .policy-layout .policy-container {
+  max-width: 1180px;
+}
+
+.about-page .policy-section {
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 .editorial-section {
@@ -2607,13 +2672,22 @@ footer {
     min-height: 180px;
   }
 
+  .related-blog-grid {
+    grid-template-columns: 1fr;
+  }
+
   .about-zigzag,
   .about-zigzag--end {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .about-zigzag--end .about-image-placeholder {
     order: -1;
+  }
+
+  .about-image-placeholder {
+    min-height: 360px;
   }
 
   .openings-list {

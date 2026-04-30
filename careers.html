@@ -245,8 +245,12 @@
       const sections = document.querySelectorAll('article.policy-section');
       const sidebar = document.querySelector('.policy-sidebar');
       const hero = document.querySelector('.policy-hero');
+      const footer = document.querySelector('footer');
       function updateSidebarVisibility() {
-        if (sidebar && hero) sidebar.classList.toggle('is-visible', hero.getBoundingClientRect().bottom <= 100);
+        if (!sidebar || !hero) return;
+        const heroHasPassed = hero.getBoundingClientRect().bottom <= 100;
+        const footerIsVisible = footer && footer.getBoundingClientRect().top <= window.innerHeight;
+        sidebar.classList.toggle('is-visible', heroHasPassed && !footerIsVisible);
       }
       window.addEventListener('scroll', updateSidebarVisibility, { passive: true });
       updateSidebarVisibility();
