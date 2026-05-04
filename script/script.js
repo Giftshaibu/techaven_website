@@ -65,6 +65,32 @@ initCarouselDots(
     '.why_techaven_card'
 );
 
+const homeFaqButtons = document.querySelectorAll('.home-faq-button');
+homeFaqButtons.forEach(button => {
+    button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const targetSelector = button.getAttribute('data-bs-target');
+        const target = targetSelector ? document.querySelector(targetSelector) : null;
+        if (!target) return;
+
+        const isOpen = target.classList.contains('show');
+        document.querySelectorAll('.home-faq .accordion-collapse.show').forEach(openPanel => {
+            if (openPanel !== target) {
+                openPanel.classList.remove('show');
+                const openButton = document.querySelector(`[data-bs-target="#${openPanel.id}"]`);
+                openButton?.classList.add('collapsed');
+                openButton?.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        target.classList.toggle('show', !isOpen);
+        button.classList.toggle('collapsed', isOpen);
+        button.setAttribute('aria-expanded', String(!isOpen));
+    });
+});
+
 document.querySelectorAll('.mobile-nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
