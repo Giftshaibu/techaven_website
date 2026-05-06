@@ -7,4 +7,4 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
-Sitemap: https://tech-havenmalawi.store/sitemap.xml
+Sitemap: https://www.techavenmw.com/sitemap.xml
